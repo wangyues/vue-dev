@@ -22,3 +22,5 @@ jar {
     }
 	from configurations.compile.collect { zipTree it}
 }
+
+http://blog.csdn.net/forezp/article/details/70148833
