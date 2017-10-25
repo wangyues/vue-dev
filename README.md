@@ -24,3 +24,5 @@ jar {
 }
 
 http://blog.csdn.net/forezp/article/details/70148833
+
+spring cloud => http://projects.spring.io/spring-cloud/spring-cloud.html#_features
