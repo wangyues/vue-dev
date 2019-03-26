@@ -1,28 +1,21 @@
-apply plugin: 'java'
+# vue_demo
 
-repositories {
-	maven {
-		url 'http://rnd-mirrors.huawei.com/maven/'
-	}
-}
+> A Vue.js project
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+## Build Setup
 
-dependencies {
-    compile "joda-time:joda-time:2.2"
-    testCompile "junit:junit:4.12"
-}
+``` bash
+# install dependencies
+npm install
 
-jar {
-    baseName = 'gradle-demo'
-	manifest {
-        attributes 'Main-Class': 'hello.HelloWorld'
-		
-    }
-	from configurations.compile.collect { zipTree it}
-}
+# serve with hot reload at localhost:8080
+npm run dev
 
-http://blog.csdn.net/forezp/article/details/70148833
+# build for production with minification
+npm run build
 
-spring cloud => http://projects.spring.io/spring-cloud/spring-cloud.html#_features
+# build for production and view the bundle analyzer report
+npm run build --report
+```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
