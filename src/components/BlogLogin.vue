@@ -22,7 +22,7 @@ export default {
     return {
       loginInfoVo: { username: '', password: '' },
       request: {
-        appName: "",
+        appName: "APP_ADDIN",
         siteName: "https://gohm.qa.webex.com"
       },
       response: {
