@@ -6,6 +6,9 @@
       <input type="text" style="width:100px" v-model="request.appName" placeholder="appName" />
       <input type="text" style="width:600px" v-model="response.appToken" placeholder="appToken" onfocus="this.select()"/>
       <br/>
+      <button v-on:click="siteinfo">SiteInfo</button>
+      <input type="text" style="width:100px" v-model="request.siteName" placeholder="siteName" />
+      <input type="text" style="width:600px" v-model="response.siteInfo" placeholder="siteInfo" onfocus="this.select()"/>
     </div>
     <hr/>
   </div>
@@ -19,11 +22,13 @@ export default {
     return {
       loginInfoVo: { username: '', password: '' },
       request: {
-        appName: ""
+        appName: "",
+        siteName: "https://gohm.qa.webex.com"
       },
       response: {
         appName: "",
-        appToken: ""
+        appToken: "",
+        siteInfo: ""
       }
     }
   },
@@ -44,7 +49,24 @@ export default {
         .catch(failResult => {
           this.response.appToken = "request failed";
         })
+    },
 
+    siteinfo() {
+      this.gohttp
+        .get('/site', {
+          params: {
+            site: this.request.siteName
+          }})
+        .then(succRresult => {
+          if (succRresult.data.code === 200) {
+            this.response.siteInfo = JSON.stringify(succRresult.data.data);
+          } else {
+            this.response.siteInfo = succRresult.data.message;
+          }
+        })
+        .catch(failResult => {
+          this.response.siteInfo = "request failed";
+        })
     }
   }
 }
